@@ -1,9 +1,10 @@
 import React from 'react';
+import { MovieList } from '..';
 
 const Movies = () => {
   console.log('Movies');
   return (
-    <h1>Movies</h1>
+    <div><MovieList /></div>
   );
 };
 
