@@ -1,5 +1,3 @@
-import { makeStyles } from '@mui/material/styles';
+import { makeStyles } from "@mui/material/styles";
 
-export default makeStyles(() => ({
-
-}));
+export default makeStyles(() => ({}));

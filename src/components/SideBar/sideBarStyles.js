@@ -1,46 +1,46 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from "@mui/styles";
 
 export default makeStyles((theme) => ({
   imageLink: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '10% 0',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "10% 0",
   },
 
   image: {
-    width: '70%',
+    width: "70%",
   },
   divider: {
-    margin: '0px',
-    borderWidth: '0px 0px thin',
-    borderStyle: 'solid',
-    borderColor: 'rgba(0, 0, 0, 0.12)',
+    margin: "0px",
+    borderWidth: "0px 0px thin",
+    borderStyle: "solid",
+    borderColor: "rgba(0, 0, 0, 0.12)",
   },
 
   links: {
     color: theme.palette.text.primary,
-    textDecoration: 'none',
+    textDecoration: "none",
   },
 
   genreImage: {
-    width: '30%',
-    marginRight: '1rem',
-    filter: theme.palette.mode === 'dark' ? 'dark' : 'invert(1)',
+    width: "30%",
+    marginRight: "1rem",
+    filter: theme.palette.mode === "dark" ? "dark" : "invert(1)",
   },
 
   genreList: {
-    overflow: 'auto',
-    '&::-webkit-scrollbar': {
-      width: '4px',
+    overflow: "auto",
+    "&::-webkit-scrollbar": {
+      width: "4px",
       // background: 'transparent', /* make scrollbar transparent */
     },
-    '&::-webkit-scrollbar-track': {
-      boxShadow: 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
+    "&::-webkit-scrollbar-track": {
+      boxShadow: "inset 0 0 6px rgba(0, 0, 0, 0.3)",
     },
-    '&::-webkit-scrollbar-thumb': {
-      backgroundColor: '#6bb5ee',
-      outline: '1px solid slategrey',
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "#6bb5ee",
+      outline: "1px solid slategrey",
     },
   },
 }));
