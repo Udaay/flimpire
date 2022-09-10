@@ -1,12 +1,11 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 export default createTheme({
   components: {
-
     MuiListSubheader: {
       styleOverrides: {
         root: {
-          backgroundColor: '#74b9ff',
+          backgroundColor: "#74b9ff",
           zIndex: 1,
         },
       },
@@ -15,10 +14,9 @@ export default createTheme({
     MuiList: {
       styleOverrides: {
         root: {
-          paddingTop: '0px',
+          paddingTop: "0px",
         },
       },
     },
-
   },
 });

@@ -4,17 +4,31 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended', 'airbnb',
+    'plugin:react/recommended',
+    'airbnb',
+    'airbnb-typescript',
   ],
-
+  // parser: '@typescript-eslint/parser',
   overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+      ],
+      parserOptions: {
+        project: './tsconfig.eslint.json', // Specify it only for TypeScript files
+      },
+    },
   ],
   parserOptions: {
+    project: './tsconfig.eslint.json',
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
   plugins: [
     'react',
+    '@typescript-eslint',
   ],
   rules: {
     'arrow-body-style': ['error', 'as-needed'],
@@ -24,11 +38,13 @@ module.exports = {
     'jsx-ally/click-events-have-key-events': 0,
     'jsx-ally/no-autofocus': 0,
     'jsx-ally/no-static-element-interactions': 0,
+    'jsx-quotes': ['error', 'prefer-single'],
     'linebreak-style': 0,
     'max-len': [2, 250],
     'no-console': 0,
     'no-param-reassign': 0,
     'no-sparse-arrays': 0,
+    '@typescript-eslint/no-unused-vars': 'off',
     'object-curly-newline': 0,
     'react/function-component-defination': 0,
     'react/jsx-filename-extension': 0,
