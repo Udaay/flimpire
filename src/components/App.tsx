@@ -7,14 +7,6 @@ import {
 } from "./index";
 import useStyles from "./styles";
 
-// const myMethod = (string) => {
-//   console.log(string);
-//   let a = 89;
-//   if (a === 90) {
-//     a = "Uday";
-//   }
-// };
-
 function App() {
   const classes = useStyles();
   return (
