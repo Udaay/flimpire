@@ -6,6 +6,7 @@ import {
   Actors, MovieInformation, Movies, NavBar, Profile,
 } from "./index";
 import useStyles from "./styles";
+import "./App.css";
 
 function App() {
   const classes = useStyles();
