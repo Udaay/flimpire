@@ -22,6 +22,14 @@ export interface Movie {
   vote_count: number;
 }
 
+interface Genre {
+  id: number;
+  name: string;
+}
+export interface GenreList {
+  genres: Genre[];
+}
+
 export enum OriginalLanguage {
   En = "en",
   Ja = "ja",
