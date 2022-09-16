@@ -19,9 +19,9 @@ import { Link } from "react-router-dom";
 import useStyles from "./navBarStyles";
 
 import { Sidebar } from "..";
+import SearchBar from "../SearchBar/SearchBar";
 
 function NavBar() {
-  console.log("NavBar");
   const classes = useStyles();
   const isMobile = useMediaQuery("(max-width: 600px)");
   const theme = useTheme();
@@ -50,7 +50,7 @@ function NavBar() {
           >
             {theme.palette.mode === "dark" ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
-          {!isMobile && <h5>Search Comp</h5>}
+          {!isMobile && <SearchBar />}
           <div className={classes.avatarContainer}>
             {!isAuthenticated ? (
               <Button color="inherit" onClick={() => console.log("Loggin")}>
@@ -69,7 +69,7 @@ function NavBar() {
               </Button>
             )}
           </div>
-          {isMobile && <h5>Search Comp</h5>}
+          {isMobile && <SearchBar />}
         </Toolbar>
       </AppBar>
       <div>

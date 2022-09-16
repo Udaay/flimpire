@@ -9,6 +9,7 @@
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.4",
     "@mui/styles": "^5.10.3",
+    "@mui/system": "^5.10.5",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
     "react": "^17.0.2",
@@ -63,7 +64,7 @@
     "eslint-plugin-promise": "^6.0.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.7.1",
-    "husky": "^8.0.0"
+    "husky": "^8.0.0",
+    "prettier": "^2.7.1"
   }
 }

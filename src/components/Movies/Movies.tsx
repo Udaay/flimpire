@@ -8,10 +8,12 @@ import { RootState } from "../../store";
 
 export default function Movies() {
   const [page, setPage] = useState<number>(1);
-  const { genreIdOrCategoryName } = useSelector((state: RootState) => state.currentGenreOrCategory);
-  const { data, isFetching, error } = useGetMoviesQuery({genreIdOrCategoryName, page});
+  const { genreIdOrCategoryName, searchQuery } = useSelector(
+    (state: RootState) => state.currentGenreOrCategory,
+  );
+  // const { searchQuery } = useSelector((state: RootState) => state.searchQuery);
+  const { data, isFetching, error } = useGetMoviesQuery({genreIdOrCategoryName, page, searchQuery});
 
-  console.log(error, "err");
   if (isFetching) {
     return (
       <Box display="flex" justifyContent="center">

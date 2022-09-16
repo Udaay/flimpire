@@ -5,7 +5,6 @@ import useStyles from "./movieCardStyles";
 
 function MovieCard({movieDetails, index}: {movieDetails : Movie, index: number}) {
   const { title, overview, poster_path, id, vote_average } = movieDetails;
-  console.log(useStyles);
   const classes = useStyles();
   const imgSrc = poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : "https://www.filmurray.com/200/300";
   return (

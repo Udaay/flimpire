@@ -5,7 +5,6 @@ import useStyles from "./movieListStyles";
 
 function MovieList({movieDetails}: {movieDetails : PopularMovies}) {
   const { results } = movieDetails;
-  console.log(useStyles);
   return (
     <Grid container justifyContent="center">
       {results.map((movieDetail, i) => (

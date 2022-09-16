@@ -2,7 +2,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { GenreList, PopularMovies } from "../models/movieModel";
 
 const tmbdApiKey = process.env.REACT_APP_TMBD_KEY;
-console.log(process.env, "env");
 const tmbdBaseURL = "https://api.themoviedb.org/3/";
 
 export const tmbdApi = createApi({
@@ -17,15 +16,18 @@ export const tmbdApi = createApi({
     //* Get movies by [type]
     getMovies: builder.query<
     PopularMovies,
-    { genreIdOrCategoryName: string; page: number }
+    { genreIdOrCategoryName: string; page: number, searchQuery?: string }
     >({
-      query: ({ genreIdOrCategoryName, page }) => {
+      query: ({ genreIdOrCategoryName, page, searchQuery }) => {
+        if (searchQuery) {
+          return `/search/movie?query=${searchQuery}&page=${page}&api_key=${tmbdApiKey}`;
+        }
+
         // top_rated, upcoming get movies by category
         if (
           genreIdOrCategoryName
           && typeof genreIdOrCategoryName === "string"
         ) {
-          console.log("hii----iii");
           return `movie/${genreIdOrCategoryName}?page=${page}&api_key=${tmbdApiKey}`;
         }
         // 67,28,16, get movies by Genre
@@ -33,7 +35,6 @@ export const tmbdApi = createApi({
           genreIdOrCategoryName
           && typeof genreIdOrCategoryName === "number"
         ) {
-          console.log("hiiiiii");
           return `discover/movie/?with_genres=${genreIdOrCategoryName}&page=${page}&api_key=${tmbdApiKey}`;
         }
         // Get Popular Movies
