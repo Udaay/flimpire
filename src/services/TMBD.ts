@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { GenreList, PopularMovies } from "../models/movieModel";
+import { GenreList, MoviesResult } from "../models/movieModel";
 
 const tmbdApiKey = process.env.REACT_APP_TMBD_KEY;
 const tmbdBaseURL = "https://api.themoviedb.org/3/";
@@ -15,8 +15,8 @@ export const tmbdApi = createApi({
 
     //* Get movies by [type]
     getMovies: builder.query<
-    PopularMovies,
-    { genreIdOrCategoryName: string; page: number, searchQuery?: string }
+    MoviesResult,
+    { genreIdOrCategoryName: string; page: number; searchQuery?: string }
     >({
       query: ({ genreIdOrCategoryName, page, searchQuery }) => {
         if (searchQuery) {
@@ -41,7 +41,26 @@ export const tmbdApi = createApi({
         return `movie/popular?page=${page}&api_key=${tmbdApiKey}`;
       },
     }),
+
+    getWatchList: builder.query<
+    MoviesResult,
+    { accountId?: number; sessionId: string }
+    >({
+      query: ({ accountId, sessionId }) => `/account/${accountId}/watchlist/movies?session_id=${sessionId}&api_key=${tmbdApiKey}`,
+    }),
+
+    getFavouriteList: builder.query<
+    MoviesResult,
+    { accountId?: number; sessionId: string }
+    >({
+      query: ({ accountId, sessionId }) => `/account/${accountId}/favorite/movies?session_id=${sessionId}&api_key=${tmbdApiKey}`,
+    }),
   }),
 });
 
-export const { useGetMoviesQuery, useGetGenresQuery } = tmbdApi;
+export const {
+  useGetMoviesQuery,
+  useGetGenresQuery,
+  useGetWatchListQuery,
+  useGetFavouriteListQuery,
+} = tmbdApi;
