@@ -16,6 +16,7 @@ import useStyles from "./sideBarStyles";
 import { useGetGenresQuery } from "../../services/TMBD";
 import { selectGenreOrCategory } from "../../features/currentGenreOrCategory";
 import { RootState } from "../../store";
+import genreIcons from "../../assets/genres";
 
 const category = [
   {
@@ -69,8 +70,9 @@ function Sidebar() {
               <>
                 <img
                   alt={label}
-                  src={blueLogo}
+                  src={genreIcons[label.toLowerCase()]}
                   className={classes.genreImage}
+                  height={30}
                 />
                 {label}
               </>
@@ -91,7 +93,12 @@ function Sidebar() {
           <Link to="/" key={id} className={classes.links} onClick={() => handleClick(id)}>
             <ListItemButton>
               <>
-                <img alt={name} src={blueLogo} className={classes.genreImage} />
+                <img
+                  alt={name}
+                  src={genreIcons[name.toLowerCase()]}
+                  className={classes.genreImage}
+                  height={30}
+                />
                 {name}
               </>
             </ListItemButton>

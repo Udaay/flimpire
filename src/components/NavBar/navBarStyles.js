@@ -32,6 +32,7 @@ export default makeStyles((theme) => ({
   },
   drawer: {
     position: "relative",
+    height: "100vh",
     [theme.breakpoints.up("sm")]: {
       width: drawerWidth,
       flexShrink: 0,

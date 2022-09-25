@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { MovieDetails } from "../models/movieDetails";
 import { GenreList, MoviesResult } from "../models/movieModel";
 
 const tmbdApiKey = process.env.REACT_APP_TMBD_KEY;
@@ -19,6 +20,7 @@ export const tmbdApi = createApi({
     { genreIdOrCategoryName: string; page: number; searchQuery?: string }
     >({
       query: ({ genreIdOrCategoryName, page, searchQuery }) => {
+        // Get Movies by Search
         if (searchQuery) {
           return `/search/movie?query=${searchQuery}&page=${page}&api_key=${tmbdApiKey}`;
         }
@@ -42,6 +44,7 @@ export const tmbdApi = createApi({
       },
     }),
 
+    // Get Watchlisted Movies
     getWatchList: builder.query<
     MoviesResult,
     { accountId?: number; sessionId: string }
@@ -49,11 +52,35 @@ export const tmbdApi = createApi({
       query: ({ accountId, sessionId }) => `/account/${accountId}/watchlist/movies?session_id=${sessionId}&api_key=${tmbdApiKey}`,
     }),
 
+    // Get Favorite Movies
     getFavouriteList: builder.query<
     MoviesResult,
     { accountId?: number; sessionId: string }
     >({
       query: ({ accountId, sessionId }) => `/account/${accountId}/favorite/movies?session_id=${sessionId}&api_key=${tmbdApiKey}`,
+    }),
+
+    // Get Movie Details
+    getMovieDetails: builder.query<MovieDetails, { id: string | undefined }>({
+      query: ({ id }) => `/movie/${id}?append_to_response=videos,credits&api_key=${tmbdApiKey}`,
+    }),
+
+    // Get Recommendations
+    getRecommendedMovies: builder.query<
+    MoviesResult,
+    { id: string | undefined }
+    >({
+      query: ({ id }) => `/movie/${id}/recommendations?api_key=${tmbdApiKey}`,
+    }),
+
+    // Get Actor
+    getActor: builder.query({
+      query: (id) => `person/${id}?api_key=${tmbdApiKey}`,
+    }),
+
+    // Get Movies by Actor
+    getMoviesByActorId: builder.query({
+      query: ({ id, page }) => `/discover/movie?with_cast=${id}&page=${page}&api_key=${tmbdApiKey}`,
     }),
   }),
 });
@@ -63,4 +90,8 @@ export const {
   useGetGenresQuery,
   useGetWatchListQuery,
   useGetFavouriteListQuery,
+  useGetMovieDetailsQuery,
+  useGetRecommendedMoviesQuery,
+  useGetActorQuery,
+  useGetMoviesByActorIdQuery,
 } = tmbdApi;
