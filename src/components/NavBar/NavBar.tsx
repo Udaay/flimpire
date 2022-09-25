@@ -54,7 +54,7 @@ function NavBar() {
     };
 
     loginUser();
-  }, [requestToken]);
+  }, [dispatch, localSessionId, requestToken]);
 
   return (
     <>

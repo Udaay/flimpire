@@ -4,7 +4,7 @@ export default makeStyles(() => ({
   root: {
     display: "flex",
     height: "100%",
-    fontFamily: "'Source Sans Pro', sans- serif"
+    fontFamily: "'Source Sans Pro', sans- serif",
   },
   toolbar: {
     height: "64px",
