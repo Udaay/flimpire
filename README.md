@@ -1,3 +1,3 @@
 # Filmpire
 
-Visit here: https://exploremovie.netlify.app/
+Visit here: https://filmpire-uday.netlify.app/
