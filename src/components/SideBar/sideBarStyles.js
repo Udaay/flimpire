@@ -38,7 +38,7 @@ export default makeStyles((theme) => ({
       boxShadow: "inset 0 0 6px rgba(0, 0, 0, 0.3)",
     },
     "&::-webkit-scrollbar-thumb": {
-      backgroundColor: "#6bb5ee",
+      backgroundColor: theme.palette.mode === "light" ? "#6bb5ee" : "#e75f69",
       outline: "1px solid slategrey",
     },
   },

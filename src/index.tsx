@@ -8,15 +8,18 @@ import App from "./components/App";
 
 import theme from "./MuiTheme";
 import store from "./store";
+// import { ColorModeContext } from "./utils/ToggleColorMode";
+import ToggleColorMode from "./utils/ToggleColorMode";
+
 // import './'
 
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
+    <ToggleColorMode>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </ThemeProvider>
+    </ToggleColorMode>
   </Provider>,
   document.getElementById("root"),
 );

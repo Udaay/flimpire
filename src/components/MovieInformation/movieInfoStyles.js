@@ -47,6 +47,15 @@ export default makeStyles((theme) => ({
     alignItems: "center",
   },
 
+  movieDetailsWrapper: {
+    marginTop: "4rem",
+    [theme.breakpoints.down("md")]: {
+      marginTop: "2rem",
+      padding: "0 1rem",
+      textAlign: "center",
+    },
+  },
+
   emptyIcon: {
 
   },
@@ -85,8 +94,24 @@ export default makeStyles((theme) => ({
       boxShadow: "inset 0 0 6px rgba(0, 0, 0, 0.3)",
     },
     "&::-webkit-scrollbar-thumb": {
-      backgroundColor: "#6bb5ee",
+      backgroundColor: theme.palette.mode === "light" ? "#6bb5ee" : "#e75f69",
+      // backgroundColor: "#6bb5ee",
       outline: "1px solid slategrey",
+    },
+  },
+
+  modal: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+  },
+  video: {
+    width: "50%",
+    height: "50%",
+    [theme.breakpoints.down("sm")]: {
+      width: "90%",
+      height: "90%",
     },
   },
 

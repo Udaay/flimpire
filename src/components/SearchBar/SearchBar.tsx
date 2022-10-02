@@ -3,6 +3,7 @@ import { useState } from "react";
 import {Search as SearchIcon} from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 
+import { useNavigate } from "react-router-dom";
 import { searchMovie } from "../../features/currentGenreOrCategory";
 
 import useStyles from "./searchBarStyles";
@@ -10,9 +11,11 @@ import useStyles from "./searchBarStyles";
 function SearchBar() {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [query, setQuery] = useState<string>("");
   const handleKeyPress = (event: any) => {
     if (event.key === "Enter") {
+      navigate("/");
       dispatch(searchMovie(query));
     }
   };
@@ -27,7 +30,7 @@ function SearchBar() {
           className: classes.input,
           startAdornment: (
             <InputAdornment position="start">
-              <SearchIcon />
+              <SearchIcon className={classes.searchIcon} />
             </InputAdornment>
           ),
         }}

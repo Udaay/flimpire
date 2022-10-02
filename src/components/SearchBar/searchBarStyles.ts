@@ -9,6 +9,9 @@ export default makeStyles((theme: Theme) => ({
       width: "100%",
     },
   },
+  searchIcon: {
+    color: theme.palette.mode === "dark" ? "#20a4b2" : "#fff",
+  },
   input: {
     color: theme.palette.mode === "dark" ? "black" : "white",
     filter: theme.palette.mode === "dark" ? "invert(1)" : "invert(0)",

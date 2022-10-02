@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
-import { useGetWatchListQuery, useGetFavouriteListQuery } from "../../services/TMBD";
+import { useGetListQuery } from "../../services/TMBD";
 
 import { userSelector } from "../../features/auth";
 import MovieList from "../MovieList/MovieList";
@@ -9,8 +9,10 @@ import MovieList from "../MovieList/MovieList";
 function Profile() {
   // const {user: userDetails} = useSelector((state: RootState) => state.user);
   const {user: userDetails, sessionId} = useSelector(userSelector);
-  const {data: watchList} = useGetWatchListQuery({accountId: userDetails?.id, sessionId});
-  const {data: favorite} = useGetFavouriteListQuery({accountId: userDetails?.id, sessionId});
+  // const {data: watchList} = useGetWatchListQuery({accountId: userDetails?.id, sessionId});
+  // const {data: favorite} = useGetFavouriteListQuery({accountId: userDetails?.id, sessionId});
+  const {data: watchList} = useGetListQuery({accountId: userDetails?.id, sessionId, list: "watchlist"});
+  const {data: favorite} = useGetListQuery({accountId: userDetails?.id, sessionId, list: "favorite"});
 
   if (!watchList?.total_results && !favorite?.total_results) {
     return (

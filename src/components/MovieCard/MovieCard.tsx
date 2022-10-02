@@ -10,7 +10,7 @@ function MovieCard({movieDetails, index}: {movieDetails : Movie, index: number})
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} xl={2} className={classes.movieCard}>
       <Grow in timeout={(index + 1) * 250} key={index}>
-        <Link className={classes.link} to={`/movies/${id}`}>
+        <Link className={classes.link} to={`/movie/${id}`}>
           <img
             alt={title}
             src={imgSrc}

@@ -16,7 +16,7 @@ export default function ActorCard(props: { casts : Cast[] }) {
     <>
       {casts.map((cast) => (
         <Paper key={cast.id} elevation={1} className={classes.cardContainer}>
-          <CustomLink to={`/actors/${cast.id}`}>
+          <CustomLink to={`/actor/${cast.id}`}>
             <Grid item className={classes.imageWrapper}>
               <img
                 className={classes.actorImg}
@@ -26,7 +26,7 @@ export default function ActorCard(props: { casts : Cast[] }) {
             </Grid>
           </CustomLink>
           <Typography variant="body1" component="p" className={classes.actorName}>
-            <CustomLink to={`/actors/${cast.id}`}>
+            <CustomLink to={`/actor/${cast.id}`}>
               {cast.name}
             </CustomLink>
           </Typography>

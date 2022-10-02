@@ -5,14 +5,16 @@ import MovieCard from "../MovieCard/MovieCard";
 
 interface MovieListProps {
   movieDetails : MoviesResult,
+  excludeFirst?: boolean;
   numberOfCards?: number
 }
 
-function MovieList({movieDetails, numberOfCards = 20}: MovieListProps) {
+function MovieList({movieDetails, numberOfCards = 20, excludeFirst = false}: MovieListProps) {
   const { results} = movieDetails;
+  const startRange = excludeFirst ? 1 : 0;
   return (
     <Grid container justifyContent="center">
-      {results.slice(0, numberOfCards).map((movieDetail, i) => (
+      {results.slice(startRange, numberOfCards).map((movieDetail, i) => (
         <MovieCard key={movieDetail.id} movieDetails={movieDetail} index={i} />
       ))}
     </Grid>

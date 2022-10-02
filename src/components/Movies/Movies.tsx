@@ -5,6 +5,8 @@ import { MovieList } from "..";
 
 import { useGetMoviesQuery } from "../../services/TMBD";
 import { RootState } from "../../store";
+import Pagination from "../Pagination/Pagination";
+import FeaturedMovie from "../FeaturedMovie/FeaturedMovie";
 
 export default function Movies() {
   const [page, setPage] = useState<number>(1);
@@ -43,6 +45,10 @@ export default function Movies() {
   }
 
   return (
-    data ? <MovieList movieDetails={data} /> : <></>
+    <>
+      <FeaturedMovie movie={data.results[0]} />
+      <MovieList movieDetails={data} numberOfCards={19} excludeFirst />
+      <Pagination currentPage={page} setPage={setPage} totalPages={data.total_pages} />
+    </>
   );
 }

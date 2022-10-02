@@ -45,6 +45,14 @@ export const tmbdApi = createApi({
     }),
 
     // Get Watchlisted Movies
+    getList: builder.query<
+    MoviesResult,
+    { accountId?: number; sessionId: string; list: string }
+    >({
+      query: ({ accountId, sessionId, list }) => `/account/${accountId}/${list}/movies?session_id=${sessionId}&api_key=${tmbdApiKey}`,
+    }),
+
+    // Get Watchlisted Movies
     getWatchList: builder.query<
     MoviesResult,
     { accountId?: number; sessionId: string }
@@ -90,6 +98,7 @@ export const {
   useGetGenresQuery,
   useGetWatchListQuery,
   useGetFavouriteListQuery,
+  useGetListQuery,
   useGetMovieDetailsQuery,
   useGetRecommendedMoviesQuery,
   useGetActorQuery,

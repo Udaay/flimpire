@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   AppBar,
   Toolbar,
@@ -24,6 +24,8 @@ import SearchBar from "../SearchBar/SearchBar";
 import getToken, {movieApi, createSession} from "../../services/authentication";
 import { setUser, userSelector } from "../../features/auth";
 
+import { ColorModeContext } from "../../utils/ToggleColorMode";
+
 function NavBar() {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -36,6 +38,8 @@ function NavBar() {
 
   const requestToken = localStorage.getItem("request_token");
   const localSessionId = localStorage.getItem("session_id");
+
+  const colorMode = useContext(ColorModeContext);
 
   useEffect(() => {
     const loginUser = async () => {
@@ -74,7 +78,8 @@ function NavBar() {
           <IconButton
             color="inherit"
             sx={{ ml: 1 }}
-            onClick={() => console.log("Toggle mode")}
+            onClick={colorMode.toggleColorMode}
+            // onClick={() => console.log("Toggle mode")}
           >
             {theme.palette.mode === "dark" ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
