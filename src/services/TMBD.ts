@@ -37,7 +37,7 @@ export const tmbdApi = createApi({
           genreIdOrCategoryName
           && typeof genreIdOrCategoryName === "number"
         ) {
-          return `discover/movie/?with_genres=${genreIdOrCategoryName}&page=${page}&api_key=${tmbdApiKey}`;
+          return `discover/movie?with_genres=${genreIdOrCategoryName}&page=${page}&api_key=${tmbdApiKey}`;
         }
         // Get Popular Movies
         return `movie/popular?page=${page}&api_key=${tmbdApiKey}`;
